@@ -42,19 +42,9 @@ namespace WebApplication1
         {
             app.UseRouting();
 
-            //adds the authentication middleware to the pipeline 
-            //so authentication will be performed automatically on every call into the host.
             app.UseAuthentication();
             app.UseAuthorization();
 
-            //if (env.IsDevelopment())
-            //{
-            //    app.UseDeveloperExceptionPage();
-            //}
-
-            //app.UseHttpsRedirection();
-
-            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();

@@ -14,10 +14,11 @@ namespace IdentityServerQuickStart
     {
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddIdentityServer()
-                .AddDeveloperSigningCredential()
-                .AddInMemoryApiResources(Config.GetApiResources())
-                .AddInMemoryClients(Config.GetClients()); ;
+            var builder = services.AddIdentityServer()
+                .AddInMemoryApiResources(Config.Apis)
+                .AddInMemoryClients(Config.Clients);
+
+            builder.AddDeveloperSigningCredential();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
